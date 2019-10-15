@@ -3,6 +3,7 @@
 namespace Torann\LaravelAsana\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 use Asana;
 
 class CustomFields extends Command
@@ -46,7 +47,7 @@ class CustomFields extends Command
                 'id'      => $row->id,
                 'name'    => $row->name,
                 'type'    => $row->type,
-                'options' => isset($row->enum_options) ? implode(', ', array_pluck($row->enum_options, 'name')) : '',
+                'options' => isset($row->enum_options) ? implode(', ', Arr::pluck($row->enum_options, 'name')) : '',
             ];
         });
 
