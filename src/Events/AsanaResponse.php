@@ -1,6 +1,6 @@
 <?php
 
-namespace Torann\LaravelAsana\Events;
+namespace Christhompsontldr\LaravelAsana\Events;
 
 use Illuminate\Queue\SerializesModels;
 

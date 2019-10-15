@@ -1,6 +1,6 @@
 <?php
 
-namespace Torann\LaravelAsana\Commands;
+namespace Christhompsontldr\LaravelAsana\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;

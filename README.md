@@ -1,47 +1,33 @@
-# Asana for Laravel
+# Asana Intergration for Laravel
+A simple Laravel package for integrating [Asana's API](https://developers.asana.com/docs/) with a Laravel application.
 
-[![Latest Stable Version](https://poser.pugx.org/torann/laravel-asana/v/stable.png)](https://packagist.org/packages/torann/laravel-asana)
-[![Total Downloads](https://poser.pugx.org/torann/laravel-asana/downloads.png)](https://packagist.org/packages/torann/laravel-asana)
-[![Patreon donate button](https://img.shields.io/badge/patreon-donate-yellow.svg)](https://www.patreon.com/torann)
-[![Donate weekly to this project using Gratipay](https://img.shields.io/badge/gratipay-donate-yellow.svg)](https://gratipay.com/~torann)
-[![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/torann)
-[![Donate to this project using Paypal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4CJA2A97NPYVU)
+## Installation
 
-Asana API wrapper for Laravel, supporting workspaces, projects, tasks, tags, users and stories.
+### Composer
+`composer require christhompsonttldr/laravel-asana`
 
-- [Laravel Asana on Packagist](https://packagist.org/packages/torann/laravel-asana)
-- [Laravel Asana on GitHub](https://github.com/torann/laravel-asana)
+### Config
 
-## Official Documentation
+Uses Laravel's `vendor:publish` to publish the package's configuration file.  This is not a required step.
 
-Documentation for the package can be found on [Lyften.com](http://lyften.com/projects/laravel-asana/).
+## Commands
 
-## Change Log
+### CustomFields
 
-#### v0.4.0
+Asana.com doesn't have a way to get the `gid` for your workspace's custom fields.  This command will list all the information for your custom fields
 
-- Added attachment
-- Code cleanup
-- Add helper function
+`php artisan asana:custom-fields`
 
-#### v0.3.1
+Pass it a workspace ID as the first parameter to get custom fields from a different workspace than the one configured in the config/asana.php file.
 
-- Fix big integers parsing
-- Fix `getTasksByFilter` ignoring filters beside the predefined ones
+### Users
 
-#### v0.3.0
+Get the users and their associated information from the Asana workspace
 
-- Remove API key (deprecated) support
+`php artisan asana:users`
 
-#### v0.2.1
+## Events
 
-- Add support for Lumen
-- Code cleanup
+### AsanaResponse
 
-#### v0.2.0
-
-- Update to Laravel 5
-
-#### v0.1.1
-
-- Code cleanup
+This event fires whenever a response from Asana is received.  This allows your application to execute listeners based on the response.

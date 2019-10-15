@@ -1,11 +1,11 @@
 <?php
 
-namespace Torann\LaravelAsana;
+namespace Christhompsontldr\LaravelAsana;
 
 use Exception;
 use InvalidArgumentException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Torann\LaravelAsana\Events\AsanaResponse;
+use Christhompsontldr\LaravelAsana\Events\AsanaResponse;
 
 class AsanaCurl
 {
