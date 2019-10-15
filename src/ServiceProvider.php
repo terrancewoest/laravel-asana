@@ -2,10 +2,10 @@
 
 namespace Christhompsontldr\LaravelAsana;
 
-use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Str;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends EventServiceProvider
 {
     protected $listen = [
         \Christhompsontldr\LaravelAsana\Events\AsanaResponse::class => [
