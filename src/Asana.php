@@ -1,6 +1,6 @@
 <?php
 
-namespace Torann\LaravelAsana;
+namespace Christhompsontldr\LaravelAsana;
 
 use Exception;
 
@@ -9,7 +9,7 @@ class Asana
     /**
      * AsanaCurl instance
      *
-     * @var \Torann\LaravelAsana\AsanaCurl
+     * @var \Christhompsontldr\LaravelAsana\AsanaCurl
      */
     private $curl;
 
@@ -182,7 +182,7 @@ class Asana
 	 *
 	 * @return null|string
 	 * @author  Olly Warren, Big Bite Creative
-	 * @package Torann\LaravelAsana
+	 * @package Christhompsontldr\LaravelAsana
 	 * @version 1.0
 	 */
 	public function getAllAttachments($taskId)
@@ -199,7 +199,7 @@ class Asana
 	 *
 	 * @return null|string
 	 * @author  Olly Warren, Big Bite Creative
-	 * @package Torann\LaravelAsana
+	 * @package Christhompsontldr\LaravelAsana
 	 * @version 1.0
 	 */
 	public function getSingleAttachment($attachmentId)

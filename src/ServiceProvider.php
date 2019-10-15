@@ -1,6 +1,6 @@
 <?php
 
-namespace Torann\LaravelAsana;
+namespace Christhompsontldr\LaravelAsana;
 
 use Illuminate\Support\Str;
 
@@ -13,13 +13,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        $this->mergeConfigFrom(
-            dirname(__DIR__) . '/config/asana.php', 'asana'
-        );
+        $this->publishes([
+            dirname(__DIR__) . '/config/asana.php' => config_path('asana.php'),
+        ]);
 
         $this->commands([
-            \Torann\LaravelAsana\Commands\CustomFields::class,
-            \Torann\LaravelAsana\Commands\Users::class,
+            \Christhompsontldr\LaravelAsana\Commands\CustomFields::class,
+            \Christhompsontldr\LaravelAsana\Commands\Users::class,
         ]);
     }
 
@@ -35,6 +35,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerResources();
         }
+
+        $this->mergeConfigFrom(
+            dirname(__DIR__) . '/config/asana.php', 'asana'
+        );
     }
 
     /**
@@ -44,7 +48,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function registerAsanaService()
     {
-        $this->app->singleton('torann.asana', function ($app) {
+        $this->app->singleton('christhompsontldr.asana', function ($app) {
             $config = $app->config->get('asana', []);
 
             return new Asana($config);
