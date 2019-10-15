@@ -2,10 +2,17 @@
 
 namespace Christhompsontldr\LaravelAsana;
 
+use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Str;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class ServiceProvider extends ServiceProvider
 {
+    protected $listen = [
+        \Christhompsontldr\LaravelAsana\Events\AsanaResponse::class => [
+            \Christhompsontldr\LaravelAsana\Listeners\RemoveAsanaFollower::class,
+        ],
+    ];
+
     /**
      * Bootstrap the application events.
      *

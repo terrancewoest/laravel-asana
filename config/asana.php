@@ -2,31 +2,11 @@
 
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Asana Access Token
-    |--------------------------------------------------------------------------
-    |
-    */
+    'accessToken' => env('ASANA_TOKEN'), // Asana Access Token
 
-    'accessToken' => env('ASANA_TOKEN'),
+    'workspaceId' => env('ASANA_WORKSPACE_ID'),  // default Asana workspace
 
-    /*
-    |--------------------------------------------------------------------------
-    | Asana default workspace
-    |--------------------------------------------------------------------------
-    |
-    */
+    'projectId' => env('ASANA_PROJECT_ID'),  // default Asana project
 
-    'workspaceId' => env('ASANA_WORKSPACE_ID'),
-
-    /*
-    |--------------------------------------------------------------------------
-    | Asana default project
-    |--------------------------------------------------------------------------
-    |
-    */
-
-    'projectId' => env('ASANA_PROJECT_ID'),
-
+    'remove_default_follower' => true,  // remove the default follower, person that created the task via the ASANA_TOKEN
 ];
