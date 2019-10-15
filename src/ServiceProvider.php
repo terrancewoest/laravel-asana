@@ -2,10 +2,17 @@
 
 namespace Christhompsontldr\LaravelAsana;
 
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Str;
 
-class ServiceProvider extends \Illuminate\Support\ServiceProvider
+class ServiceProvider extends EventServiceProvider
 {
+    protected $listen = [
+        \Christhompsontldr\LaravelAsana\Events\AsanaResponse::class => [
+            \Christhompsontldr\LaravelAsana\Listeners\RemoveAsanaFollower::class,
+        ],
+    ];
+
     /**
      * Bootstrap the application events.
      *
@@ -21,6 +28,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             \Christhompsontldr\LaravelAsana\Commands\CustomFields::class,
             \Christhompsontldr\LaravelAsana\Commands\Users::class,
         ]);
+
+        parent::boot();
     }
 
     /**
@@ -34,11 +43,18 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->registerResources();
+
+            $this->commands([
+                \Christhompsontldr\LaravelAsana\Commands\CustomFields::class,
+                \Christhompsontldr\LaravelAsana\Commands\Users::class,
+            ]);
         }
 
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/config/asana.php', 'asana'
         );
+
+        parent::register();
     }
 
     /**
