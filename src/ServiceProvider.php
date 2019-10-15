@@ -28,6 +28,8 @@ class ServiceProvider extends EventServiceProvider
             \Christhompsontldr\LaravelAsana\Commands\CustomFields::class,
             \Christhompsontldr\LaravelAsana\Commands\Users::class,
         ]);
+
+        parent::boot();
     }
 
     /**
@@ -41,11 +43,18 @@ class ServiceProvider extends EventServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->registerResources();
+
+            $this->commands([
+                \Christhompsontldr\LaravelAsana\Commands\CustomFields::class,
+                \Christhompsontldr\LaravelAsana\Commands\Users::class,
+            ]);
         }
 
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/config/asana.php', 'asana'
         );
+
+        parent::register();
     }
 
     /**

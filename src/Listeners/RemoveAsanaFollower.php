@@ -17,10 +17,8 @@ class RemoveAsanaFollower
 
 	public function handle(AsanaResponse $event)
 	{
-        if (!Str::endsWith($event->method, 'removeFollowers')
-            && !empty($event->response->data->id)
-            && config('asana.remove_default_follower') !== false) {
-            Asana::removeFollowersFromTask($event->response->data->id, ['me']); // accepts email, GID, or "me"
+        if (!Str::endsWith($event->method, 'removeFollowers') && !empty($event->response->data->gid) && config('asana.remove_default_follower') !== false) {
+            Asana::removeFollowersFromTask($event->response->data->gid, ['me']); // accepts email, GID, or "me"
         }
 	}
 }
