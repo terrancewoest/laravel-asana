@@ -1,10 +1,12 @@
 # Asana Intergration for Laravel
 A simple Laravel package for integrating [Asana's API](https://developers.asana.com/docs/) with a Laravel application.
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/christhompsontldr/laravel-asana.svg?style=flat-square)](https://packagist.org/packages/christhompsontldr/laravel-asana)
+
 ## Installation
 
 ### Composer
-`composer require christhompsonttldr/laravel-asana`
+`composer require christhompsontldr/laravel-asana`
 
 ### Config
 
