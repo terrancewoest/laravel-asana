@@ -1,5 +1,5 @@
 {
-  "name": "christhompsontldr/laravel-asana",
+  "name": "terrancewoest/laravel-asana",
   "description": "Asana API wrapper for Laravel",
   "keywords": ["laravel", "asana"],
   "license": "BSD-2-Clause",
